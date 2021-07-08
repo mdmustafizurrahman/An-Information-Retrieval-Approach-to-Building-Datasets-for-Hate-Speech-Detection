@@ -1,0 +1,406 @@
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<style>
+  .key-phrase {
+    color: green;
+  }
+  
+  ::selection {
+  color: red;
+  background: yellow;
+}
+</style>
+
+<crowd-entity-annotation
+  name="key-phrases"
+  
+  header="Identify hate speech: highlight 1) inciting violence, 2) derogatory language, and 3) the intended target."
+  labels="[
+    {'label': 'DEROGATORY LANGUAGE', 'shortDisplayName': 'DEROGATORY LANGUAGE', 'fullDisplayName': 'DEROGATORY LANGUAGE'}, 
+    {'label': 'INCITE VIOLENCE', 'shortDisplayName': 'INCITE VIOLENCE', 'fullDisplayName': 'INCITE VIOLENCE'}, 
+    {'label': 'TARGETED INDIVIDUAL', 'shortDisplayName': 'TARGETED INDIVIDUAL', 'fullDisplayName': 'TARGETED INDIVIDUAL'},
+  
+    {'label': 'GROUP:BODY', 'shortDisplayName': 'GROUP:BODY', 'fullDisplayName': 'GROUP:BODY'},
+    {'label': 'GROUP:GENDER', 'shortDisplayName': 'GROUP:GENDER', 'fullDisplayName': 'GROUP:GENDER'},
+    {'label': 'GROUP:IDEOLOGY', 'shortDisplayName': 'GROUP:IDEOLOGY', 'fullDisplayName': 'GROUP:IDEOLOGY'},
+    
+    {'label': 'GROUP:RACE', 'shortDisplayName': 'GROUP:RACE', 'fullDisplayName': 'GROUP:RACE'},
+    {'label': 'GROUP:RELIGION', 'shortDisplayName': 'GROUP:RELIGION', 'fullDisplayName': 'GROUP:RELIGION'},
+    
+    {'label': 'GROUP:SEXUAL_ORIENTATION', 'shortDisplayName': 'GROUP:SEXUAL ORIENTATION', 'fullDisplayName': 'GROUP:SEXUAL ORIENTATION'},
+    {'label': 'GROUP:OTHER', 'shortDisplayName': 'GROUP:OTHER', 'fullDisplayName': 'GROUP:OTHER'}
+    ]"
+  text= "{{ task.input.taskObject }}"
+  
+>
+    
+  <title> Annotate Hate Speech </title>    
+  
+  <div id="anotherOne" style="margin-top: 20px">
+      <br>
+      <label for="Explicitcategory"><b>Step 4</b> If the above tweet EXPLICITLY target an INDIVIDUAL or a GROUP, choose a category:</label>
+          <select id="Explicitcategory" name="Explicitcategory" required>
+          <option value=""></option>
+          <option value="NONE">NONE</option>
+          <option value="TARGETED INDIVIDUAL">TARGETED INDIVIDUAL</option>
+          
+          <option value="GROUP:BODY">GROUP:BODY</option>
+          <option value="GROUP:GENDER">GROUP:GENDER</option>
+          <option value="GROUP:IDEOLOGY">GROUP:IDEOLOGY</option>
+          <option value="GROUP:RACE">GROUP:RACE</option>
+           <option value="GROUP:RELIGION">GROUP:RELIGION</option>
+          <option value="GROUP:SEXUAL_ORIENTATION">GROUP:SEXUAL ORIENTATION</option>
+           <option value="GROUP:OTHER">GROUP:OTHER</option>
+               
+          
+        </select>  
+  
+      <br>
+       
+      <p><b>Step 5.</b> If the tweet IMPLICITLY 1) incites violence; 2) denigrates someone; or 3) identifies the target of the hate speech, use the radio selections below to indicate this, following the instructions. </p>
+      <p> If the above tweet is NOT hateful, please select "NONE" from the two selections and TYPE "NONE" in the textbox here.       
+       </p>
+       <table border="1" cellpadding="10px" cellspacing="5px">  
+        <tr>    
+        <td>
+        <label for="ImplicithateType">For implicit hate choose a category:</label>
+          <select id="ImplicithateType" name="ImplicithateType" required>
+          <option value=""></option>
+          <option value="NONE">NONE</option>
+          <option value="DEROGATORY LANGUAGE">DEROGATORY LANGUAGE</option>
+          <option value="INCITE VIOLENCE">INCITE VIOLENCE</option>
+            
+        </td>  
+        
+        
+        <td><label for="Implicitcategory">For implicit hate choose a group:</label>
+          <select id="Implicitcategory" name="Implicitcategory" required>
+          <option value=""></option>
+          <option value="NONE">NONE</option>
+          <option value="GROUP:BODY">GROUP:BODY</option>
+          <option value="GROUP:GENDER">GROUP:GENDER</option>
+          <option value="GROUP:IDEOLOGY">GROUP:IDEOLOGY</option>
+          <option value="GROUP:RACE">GROUP:RACE</option>
+           <option value="GROUP:RELIGION">GROUP:RELIGION</option>
+          <option value="GROUP:SEXUAL_ORIENTATION">GROUP:SEXUAL ORIENTATION</option>
+        
+           <option value="GROUP:OTHER">GROUP:OTHER</option>
+        
+          
+        </select>  
+          
+        </td>  
+        
+        
+         <td><label for="Implicittaret"> Implicit targeted individual or group:</label>
+        <input type="text" id="Implicittaret" name="Implicittaret" value="" required>
+        </td>   
+       
+        
+      </tr>   
+      </table>  
+      
+      
+      <p> <b>Step 6</b> Based on your answers to the above steps, do you believe the tweet is hateful? 
+      <input type="radio" id="yes" name="hateornot" value="yes" required>
+      <label for="yes">yes</label> 
+      <input type="radio" id="no" name="hateornot" value="no">
+      <label for="no">no</label>
+       
+      </p>
+      
+      <p><b>Step 7</b> If you DO NOT find anything to highlight that is EXPLICIT (Step 1 - 3) regarding DEROGATORY LANGUAGE or INCITING VIOLENCE and INTENDED TARGET, please select the "No entities to label" checkbox at the bottom right beside the submit button. 
+       
+      </p> 
+     
+      
+      <p> <b> Rationale [OPTIONAL] </b>: Please provide any additional explanation of your labeling decisions you would like to provide </p>
+      
+      <textarea rows = "5" cols = "50" name = "description"></textarea>
+      
+      <p> <b> Comments [OPTIONAL]</b>: Do you have any feedback on how we can improve our task? Thanks! </p>
+      
+      <textarea rows = "5" cols = "50" name = "comments"></textarea>
+      
+      <br>
+      
+      <table border="1">   
+      <caption> <b>GROUP CATEGORIES</b></caption>
+        <tr>    
+        <td style="width:70px">  GROUP:BODY </td> 
+        <td>  Relative to body, such as slender or overweight, tall or short, etc. </td>    
+        </tr>
+        
+        <tr>
+        <td style="width:70px">  GROUP:GENDER </td> 
+        <td>  Relative to gender (e.g., male, female, transgender) or ideology related to gender (e.g., feminist).  For example, sexism against women. </td>   
+        </tr>
+      
+      
+      
+        <tr>
+        <td style="width:70px">  
+GROUP:IDEOLOGY  </td> 
+        <td> 
+Relative to a person’s ideology, such as liberal, moderate, conservative, etc. </td>    
+      </tr>
+         
+         
+        <tr> 
+        <td style="width:70px">  GROUP:RACE </td> 
+        <td>  
+Relative to race, ethnicity, and/or origin, such as Caucasian, African American, Hispanic, Chinese, Mexican, etc. </td>    
+       </tr>
+      
+        <tr>
+        <td style="width:70px">  GROUP:RELIGION </td> 
+        <td>  Relative to religion, such as Christian/Chistianity, Muslim/Islam, Budhist/Buddhism, etc.
+        </td>    
+        </tr>
+  
+        
+        
+        <tr>
+        <td style="width:70px">  
+GROUP:SEXUAL ORIENTATION </td> 
+        <td>   Relative to sexual orientation, such as heterosexual, homosexual, bisexual, polygamy, etc. </td>    
+       </tr>
+      
+        
+        <td style="width:70px">  GROUP:OTHER </td> 
+        <td>  Relative to any other group identity, such as physical or mental disabilities, dietary preferences/restrictions, occupation, economic class, etc. Also used when group is unknown (e.g., “people like John”, where it is unclear which group is being identified.)</td>    
+        </tr>
+      
+    
+      </table>  
+    
+  </div>  
+  
+    <div id="additionalQuestions" style="margin-top: 20px">
+      
+      <b>What is Hate Speech?</b> Hate speech contains <u>derogatory language</u> and/or <u>incites violence</u> against an individual or group of people <u>on the basis of group identity</u> (e.g., race, religion, skin color, sexual identity, gender identity, ethnicity, disability, national origin, etc.). Derogatory language that is NOT in relation to any group identity should NOT be treated as hateful. 
+      
+      </p> 
+      <p>For complete instructions, please refer to the <b>instruction tab</b>. Begin by completing Steps 1-3: <br>
+     <b>Step 1: Highlight words or phrases in the tweet inciting violence explicitly.</b> If the tweet IMPLICITLY incites violence, use the radio selection below instead. <br>
+      <b>Step 2: Highlight derogatory language in the tweet on the basis of group identity</b>.If the tweet IMPLICITLY denigrates someone, use the radio selection selection below instead. <br>
+      <b>Step 3: Highlight the explicit target of the hate speech.</b> If the target is IMPLICIT, use the radio selection to identify the group targeted and write in the target in the text box. <br>
+      
+      </p>
+      
+      
+      
+    
+      
+      </div>
+      
+    <short-instructions>
+      
+      <b>Disclaimer:</b> <p> Our research seeks to reduce the spread of hate speech on social media by training computer programs to automatically detect hate speech. To accomplish this, we ask human annotators to read Tweets and label hate speech. We understand that this labeling task requires content that can be disturbing to read. If you prefer to return this task rather than work on it, we understand. In general, if you ever experience mental or emotional distress, please know that help is available online.  Helplines include https://suicidepreventionlifeline.org/ in the USA and http://suicide.org/international-suicide-hotlines.html internationally. For additional reading on this subject, please consult our research article, “The Psychological Well-Being of Content Moderators” (<a href="https://www.ischool.utexas.edu/~ml/papers/steiger-chi21.pdf">https://www.ischool.utexas.edu/~ml/papers/steiger-chi21.pdf)</a>.</p>
+      
+      
+      <br><br>
+            <b>What is Hate Speech?</b> Hate speech contains <u>derogatory language</u> and/or <u>incites violence</u> against an individual or group of people <u>on the basis of group identity</u> (e.g., race, religion, skin color, sexual identity, gender identity, ethnicity, disability, national origin, etc.). Derogatory language that is NOT in relation to any group identity should NOT be treated as hateful.  
+
+<br><br>
+<b>Task</b> This task asks you to identify hateful tweets. When hate is expressed EXPLICITLY, you will highlight the corresponding words or phrases in the tweet and select an appropriate category for each highlighted word or phrase. When hate is expressed IMPLICITLY, you will indicate that in other ways, without highlighting. 
+
+<br><br>
+
+The typical steps involved in this task are as follows:
+<br><br>
+
+<b>Step 1: Does the tweet INCITE VIOLENCE (for any reason)?</b>. If so, is this explicit or implicit? 
+<ul>
+<li><b>Explicit:</b> if language inciting violence is explicit in the tweet, highlight the corresponding word(s) or phrase(s) and select the category INCITES VIOLENCE.  
+<li><b>Implicit:</b> If the tweet implicitly incites violence, select INCITES VIOLENCE from the “Hate Type” radio selection under Step 5.
+</ul>
+
+<b>Step 2: Does the tweet have DEROGATORY LANGUAGE </b> that is targeted towards an individual or group on the basis of a group identity? If so, is this explicit or implicit? 
+<ul>
+<li><b>Explicit:</b> if derogatory language on the basis of a group identity, is explicit in the tweet, highlight the corresponding word(s) or phrase(s) and select the category DEROGATORY LANGUAGE.
+<li><b>Implicit:</b> If the tweet implicitly denigrates an individual or group on the basis of a group identity, select INCITES VIOLENCE from the “Hate Type” radio 
+selection under Step 5.
+</ul>
+
+<b>Step 3: If either Step 1 or Step 2 is TRUE, does the tweet have a  targeted individual or group</b>? If there is a targeted individual or group, is that explicit or implicit? 
+<ul>
+<li><b>Explicit:</b> If the targeted group identity is explicit, highlight and categorize any word(s) or phrase(s) in the tweet that identify the targeted group. For example: if hate is expressed toward “white people”, highlight “white people” and select the category “GROUP:RACE”. 
+
+<li><b>Implicit:</b> If the targeted group is implicit, i) use the GROUP radio selection option below to select the appropriate group identity 
+AND ii) use the GROUP textbox to write in the name of the targeted group, under Step 5.  
+</ul>
+
+<br> <br>
+<b>Step 4.</b> If the targeted group is explicit,  use the 
+GROUP radio selection option below to select the appropriate group identity.
+<br><br>
+<b>Step 5.</b>  If the tweet IMPLICITLY 1) incites violence; 2) denigrates someone; or 3) identifies the target of the hate speech, 
+use the radio selections below to indicate this, following the instructions.
+If the above tweet is NOT hateful, please select "NONE" from the two selections and TYPE "NONE" in the textbox here.
+
+<br> <br>
+<b> Step 6</b>: Based on your answers to the above steps, do you believe the tweet is hateful? Select your option from the radio button. 
+<br><br>
+
+<br> If you DO NOT find anything to highlight that is EXPLICIT (Step 1, 2 and 3) regarding DEROGATORY LANGUAGE or INCITING VIOLENCE and INTENDED TARGET, 
+please select the "No entities to label" checkbox at the bottom right beside the submit button.
+<br> <br>
+
+<b>Special case.</b> Sometimes a word or phrase is both DEROGATORY LANGUAGE and identifies the targeted group at the same time. Because 
+each highlight can only have a single category associated with it, and you have already highlighted the word(s) or 
+phrase(s) as DEROGATORY LANGUAGE, use the GROUP textbox to write in the name of the targeted group, and use the GROUP 
+radio selection option below to select the appropriate group identity. For example, if the word “cracker” were used as a DEROGATORY term for caucasians, please 1) use the additional text box to write in “caucasians” and 2) use the additional radio selection to select the category “GROUP:RACE”.
+
+
+
+<br><br> <b>Clarifying Example for Target</b>: 
+Imagine a hateful tweet says “Attack <b>X</b>”, where <b>X</b> is:
+<ul>
+  
+<li><b>X</b>=“John Smith”.  The target is an individual with no indicated group identity. Highlight “John Smith” with category “TARGETED INDIVIDUAL”.
+<li><b>X</b>=”sexist men like John Smith”. The target is a group: ”sexist men like John Smith”. Highlight this group with category “GROUP:GENDER”
+<li><b>X</b>=”people like John Smith”. The target is a group (“people like John Smith”), but it is unclear what group identity is being referred to.  Highlight the group and select category “GROUP:OTHER”.
+
+</ul>
+
+<br><br> <b>Clarifying Examples for implicit hateful tweet</b>:
+      <br><b>Example Tweet</b>:  Six million wasn’t enough (6MWE)
+      <br><b>Incites Violence:</b>: yes, implicit, select INCITES VIOLENCE from the “Hate Type” radio selection.
+      <br><b>Derogatory language:</b> no
+
+      <br><b>Targeted Group</b>: implicit, write “Jewish people” and select GROUP:Religion
+      
+      <br><b>Explanation:</b> this tweet implicitly refers to the six million Jewish people killed during the Holocaust and thus incites violence.  Reference: <a href="https://www.snopes.com/fact-check/proud-boy-6mwe/">https://www.snopes.com/fact-check/proud-boy-6mwe/</a>. 
+
+      
+      
+    <!--  
+      <p><b>Task:</b> Given a tweet, does it 
+      
+      <br> i) contain any derogatory words 
+      <br> or ii) incite violence which is directed  towards an individual or a specific group of people in reference to the identity of the individual or group? 
+      <br> <br>  If so, at first, highlight the words reflecting derogatory words or violence. 
+      <br> <br> Next, highlight the words reflecting the targeted explicit individual or explicit group. 
+      <br> <br> For explicit group, select any of these: i) Sexism, ii) Body, iii) Origin, iv) Homophobia, v) Racism, vi) Ideology, vii) Religion, viii) Health, ix) other. 
+      <br> <br> If the individual or groups targeted in the tweet above is implicit, please report that in the second text box.
+      <br> <br> Furthermore, if a single word represents both derogatory term and group, highlight only words refelecting groups.
+      </p>
+      
+      
+      <table border="1">   
+        <tr>    
+        <td style="width:70px">  Sexism </td> 
+        <td>  Derogatory terms based on gender includes women. </td>   
+        </tr>
+        <td style="width:70px">  Body </td> 
+        <td>  Derogatory terms based on on body, such as fat, thin, tall or short people. </td>    
+        </tr>
+        <td style="width:70px">  Origin </td> 
+        <td>  Derogatory terms based on the place of origin. For examples, Mexican, Chinese, etc. </td>    
+       </tr>
+      
+        <td style="width:70px">  Homophobia </td> 
+        <td>  Derogatory terms based on sexual orientation. For instance, LGBTQ+, etc.</td>    
+       </tr>
+      
+        <td style="width:70px">  Racism </td> 
+        <td>  Derogatory terms based on race and ethnicity. For example, black people. </td>    
+      </tr>
+      
+        <td style="width:70px">  Ideology </td> 
+        <td>  Derogatory terms based on a person’s ideas, such as feminist or left wing ideology </td>    
+        </tr>
+        
+        <td style="width:70px">  Religion </td> 
+        <td>  Derogatory terms based on Religion. For example, Islam. </td>    
+        </tr>
+      
+       <td style="width:70px">  Health </td> 
+        <td>  Derogatory terms based on health conditions, such as against disabled people</td>    
+        </tr>
+      
+      
+       <td style="width:70px">  Other-Lifestyle </td> 
+        <td>  Derogatory terms based on life habits, such as vegetarianism.</td>    
+        </tr>
+      
+        
+      </table>  
+      -->
+        
+  
+      Please read the following examples carefully to understand how a tweet looks like under each category. 
+      <p>
+        
+      <br><b>Example Tweet 1</b>: “Poor white kids being forced to treat apes and parasites as their equals.”
+      <br><b>Derogatory language</b>: “apes” and “parasites”
+      <br><b>Targeted Individual or Group</b>: GROUP:RACE
+      
+      
+      <br><b>Rationale</b>: In this tweet, the terms “apes” and “parasites” are used to imply that darker skinned people are not equal to caucasians (white people). This degrades the group composed of those with dark skin based on an identifying characteristic, namely, their skin color. 
+      
+      <br>
+      <br><b>Example Tweet 2</b>: “Islam is a false religion however unlike some other false religions it is crude and appeals to crude people such as arabs”
+      <br><b>Derogatory language</b>: “Crude”, “false religions”
+      <br><b>Individual or Group</b>: GROUP:RELIGION
+      
+      <br>
+      <br><b>Example Tweet 3</b>: “Illegal immigration is a cancer which if not eliminated will bring the downfall of Europe and European culture”
+      <br><b>Derogatory language</b>:  “cancer”
+      <br><b>Individual or Group</b>: GROUP:RACE
+      
+      <br>
+      <br><b>Example Tweet 4</b>: “I know of Donald Trump and subsequently have hated him for a long time”
+      <br><b>Derogatory language</b>: NOTHING 
+      <br><b>Individual or Group</b>: Donald Trump (Individual)
+      
+      
+      <!--
+      <br>
+      <br>Besides, it must be emphasized that the presence of pejorative language in a sentence cannot systematically be considered sufficient evidence to confirm the existence of hate speech. The use of “fag” in the following tweet:
+      
+      
+      <br><br><b>Example Tweet 5</b>: Six million is not enough
+      <br><b>Derogatory language</b>: NOTHING 
+      <br><b>Individual or Group</b>: Implicit towards Jews religion group 
+      
+      
+      <br><br><b>Example Tweet 6</b>: “Trump is very comfortable attacking Latinos, women and blacks because he believes white men are superior in every way”
+       
+      <br><b>Derogatory language</b>: NOTHING 
+      <br><b>Individual or Group</b>: Racism, Origin, Sexism
+      -->
+ </short-instructions>
+ 
+<full-instructions>
+      
+</full-instructions>
+         
+</crowd-entity-annotation>
+
+<script>
+  document.addEventListener('all-crowd-elements-ready', myFunction);
+
+ document.addEventListener('all-crowd-elements-ready', myFunction2);
+
+  function myFunction() {
+       document
+      .querySelector('crowd-entity-annotation')
+      .shadowRoot
+      .querySelector('crowd-form')
+      .form
+      .prepend(additionalQuestions);
+  }
+  
+  function myFunction2() {
+       document
+      .querySelector('crowd-entity-annotation')
+      .shadowRoot
+      .querySelector('crowd-form')
+      .form
+      .appendChild(anotherOne);
+  }
+  
+  
+</script>
