@@ -13,10 +13,11 @@ Md Mustafizur Rahman, Dinesh Balakrishnan, Dhiraj Murthy, Mucahid Kutlu, and Mat
 
 ## Benchmark Models
 
-1. BiLSTM [[1]](#1) The source code for BiLSTM is used from [[4]](#4) where the authors corrected it [[Source code]](https://github.com/aymeam/User_distribution_experiments/tree/master/Model1_Experiments) 
-2. LSTM [[2]](#2) The source code for LSTM is used from [[4]](#4) where the authors corrected it [[Source code]](https://github.com/aymeam/User_distribution_experiments/tree/master/Model2_Experiments)
+1. BiLSTM [[1]](#1) [[Source code]](https://github.com/aymeam/User_distribution_experiments/tree/master/Model1_Experiments) 
+2. LSTM [[2]](#2) [[Source code]](https://github.com/aymeam/User_distribution_experiments/tree/master/Model2_Experiments)
 3. BERT [[3]](#3) [[Source code]](https://github.com/huggingface/transformers)
 
+### The source code for BiLSTM and LSTM used in this project are collected from [[4]](#4) where the authors made necessary correction for those two models. 
 
 
 ## References
