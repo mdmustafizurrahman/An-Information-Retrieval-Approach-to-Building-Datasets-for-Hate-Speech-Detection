@@ -13,7 +13,7 @@ Md Mustafizur Rahman, Dinesh Balakrishnan, Dhiraj Murthy, Mucahid Kutlu, and Mat
 
 ## Benchmark Models
 
-1. BiLSTM [[1]](#1) [[Source code]](https://github.com/aymeam/User_distribution_experiments/tree/master/Model1_Experiments) 
+1. BiLSTM [[1]](#1) Used the corercted version from [[Source code]](https://github.com/aymeam/User_distribution_experiments/tree/master/Model1_Experiments) 
 2. LSTM [[2]](#2) [[Source code]](https://github.com/aymeam/User_distribution_experiments/tree/master/Model2_Experiments)
 3. BERT [[3]](#3) [[Source code]](https://github.com/huggingface/transformers)
 
@@ -29,3 +29,7 @@ for hate speech detection in tweets. In Proceedings of the 26th International Co
 World Wide Web Companion. 759–760.
 
 <a id="3">[3]</a> Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2018. Bert: Pretraining of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805 (2018).
+
+<a id="4">[4]</a> Aymé Arango, Jorge Pérez, and Barbara Poblete. 2019. Hate speech detection is not as easy as
+you may think: A closer look at model validation. In Proceedings of the 42nd international
+acm sigir conference on research and development in information retrieval. 45–54.
