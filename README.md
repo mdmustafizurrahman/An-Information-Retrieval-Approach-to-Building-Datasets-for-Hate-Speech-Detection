@@ -2,7 +2,7 @@
 
 For more details about our hate speech dataset
 
-Md Mustafizur Rahman, Dinesh Balakrishnan, Dhiraj Murthy, Mucahid Kutlu, and Matthew Lease, An Information Retrieval Approach to Building Datasets for Hate Speech Detection. [https://openreview.net/forum?id=jI_BbL-qjJN]
+Md Mustafizur Rahman, Dinesh Balakrishnan, Dhiraj Murthy, Mucahid Kutlu, and Matthew Lease, An Information Retrieval Approach to Building Datasets for Hate Speech Detection. [[pdf]](https://openreview.net/forum?id=jI_BbL-qjJN)
 
 ## Benchmark Models
 
