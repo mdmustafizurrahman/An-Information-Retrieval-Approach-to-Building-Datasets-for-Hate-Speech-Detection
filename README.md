@@ -22,6 +22,9 @@ Md Mustafizur Rahman, Dinesh Balakrishnan, Dhiraj Murthy, Mucahid Kutlu, and Mat
 ## Annotation Interface
 Two different annotation interfaces used during pilot and main phases are provided in html format under /interface/ directory. 
 
+When you are using this data set in your research, please consider to cite the following paper:
+Md Mustafizur Rahman, Dinesh Balakrishnan, Dhiraj Murthy, Mucahid Kutlu, and Matthew Lease, An Information Retrieval Approach to Building Datasets for Hate Speech Detection. 
+
 ## References
 <a id="1">[1]</a> Sweta Agrawal and Amit Awekar. 2018. Deep learning for detecting cyberbullying across
 multiple social media platforms. In European Conference on Information Retrieval. Springer,
