@@ -34,3 +34,7 @@
 28. rationale3<br/>
 29. majority_label<br/>
 30. majority_label_auto<br/>
+
+## Self Consistency Check
+For self consistencey check, we use these two fields 1) final_label<annotators#id>, and 2) hate_auto_label<annotators#id> for each annotator. 
+ 
