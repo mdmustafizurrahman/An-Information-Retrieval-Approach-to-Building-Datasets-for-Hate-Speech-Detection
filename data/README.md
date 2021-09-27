@@ -35,6 +35,19 @@
 29. majority_label<br/>
 30. majority_label_auto<br/>
 
+Each row contains 30 colums, where there are 9 columns for each annotators. These 9 columns are:
+1. final_label<annotators#id> 
+2. hate_auto_label<annotators#id>
+3. expliciteHateType<annotators#id>
+4. hatecategory<annotators#id>
+5. highlighted_terms<annotators#id>
+6. highlighted_terms_label<annotators#id>
+7. ImplicithateType<annotators#id>
+8. Implicittaret<annotators#id>
+9. rationale<annotators#id>
+
+where <annotators#id> is in the format of 1,2 and 3 for 3 annotators per row.
+
 ## Self Consistency Check
-For self consistencey check, we use these two fields 1) final_label<annotators#id>, and 2) hate_auto_label<annotators#id> for each annotator. 
+For self consistencey check, we use these two fields 1) final_label<annotator#id>, and 2) hate_auto_label<annotator#id> for each annotator. 
  
