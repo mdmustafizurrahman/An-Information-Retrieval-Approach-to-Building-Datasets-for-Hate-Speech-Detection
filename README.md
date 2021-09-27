@@ -1,6 +1,6 @@
 ## An-Information-Retrieval-Approach-to-Building-Datasets-for-Hate-Speech-Detection
 
-For more details about our hate speech dataset
+For more details about our hate speech dataset, please read the following research article 
 
 Md Mustafizur Rahman, Dinesh Balakrishnan, Dhiraj Murthy, Mucahid Kutlu, and Matthew Lease, An Information Retrieval Approach to Building Datasets for Hate Speech Detection. [[pdf]](https://openreview.net/forum?id=jI_BbL-qjJN)
 
