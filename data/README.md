@@ -36,8 +36,8 @@
 30. majority_label_auto<br/>
 
 Each row contains 30 colums, where there are 9 columns for each annotators. These 9 columns are:
-1. final_label<annotators#id> -- final binary hate label (hate or non-hate) provided by the annotator
-2. hate_auto_label<annotators#id> -- final binary hate label (hate or non-hate) inferred automatically using the annotation provided by the annotator
+1. final_label<annotators#id> -- final binary hate label (hate or non-hate) provided directly by the annotator
+2. hate_auto_label<annotators#id> -- final binary hate label (hate or non-hate) inferred on the basis of the annotator's answer to annotation sub-tasks in identifying 1) derogatory language or language inciting violence; and 2) target demographic group
 3. expliciteHateType<annotators#id> -- if the hate type (incite violence, deragatory langauge or None) is explicit, this column captures that
 4. hatecategory<annotators#id> -- targeted groups for the hate (race, gender, etc) is captured by this column  
 5. highlighted_terms<annotators#id> -- terms highlighted by the annotators related to hate type and hate category 
