@@ -34,3 +34,20 @@
 28. rationale3<br/>
 29. majority_label<br/>
 30. majority_label_auto<br/>
+
+Each row contains 30 colums, where there are 9 columns for each annotators. These 9 columns are:
+1. final_label<annotators#id> -- final binary hate label (hate or non-hate) provided directly by the annotator
+2. hate_auto_label<annotators#id> -- final binary hate label (hate or non-hate) inferred on the basis of the annotator's answer to annotation sub-tasks in identifying 1) derogatory language or language inciting violence; and 2) target demographic group
+3. expliciteHateType<annotators#id> -- if the hate type (incite violence, deragatory langauge or None) is explicit, this column captures that
+4. hatecategory<annotators#id> -- targeted groups for the hate (race, gender, etc) is captured by this column  
+5. highlighted_terms<annotators#id> -- terms highlighted by the annotators related to hate type and hate category 
+6. highlighted_terms_label<annotators#id> -- labels of the terms highlighted by the annotators related to hate type and hate category  
+7. ImplicithateType<annotators#id> -- if the hate type (incite violence, deragatory langauge or None) is implicit, this column captures that
+8. Implicittaret<annotators#id> -- if the targeted group of hate is implicit, this column captures that
+9. rationale<annotators#id> -- any justification provided by the annotators for their decisions 
+
+where <annotators#id> in {1, 2, 3} indicates the first, second, or third annotator for the given tweet. Note that this does not refer to an unique identifier for the annotator across tweets.
+
+## Self Consistency Check
+For self consistencey check, we use these two fields 1) final_label<annotator#id>, and 2) hate_auto_label<annotator#id> for each annotator. 
+ 
