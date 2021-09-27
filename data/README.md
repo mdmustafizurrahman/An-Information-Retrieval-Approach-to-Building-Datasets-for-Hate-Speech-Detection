@@ -46,7 +46,7 @@ Each row contains 30 colums, where there are 9 columns for each annotators. Thes
 8. Implicittaret<annotators#id> -- if the targeted group of hate is implicit, this column captures that
 9. rationale<annotators#id> -- any justification provided by the annotators for their decisions 
 
-where <annotators#id> is in the format of 1,2 and 3 for 3 annotators per row.
+where <annotators#id> in {1, 2, 3} indicates the first, second, or third annotator for the given tweet. Note that this does not refer to an unique identifier for the annotator across tweets.
 
 ## Self Consistency Check
 For self consistencey check, we use these two fields 1) final_label<annotator#id>, and 2) hate_auto_label<annotator#id> for each annotator. 
