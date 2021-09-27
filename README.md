@@ -19,6 +19,8 @@ Md Mustafizur Rahman, Dinesh Balakrishnan, Dhiraj Murthy, Mucahid Kutlu, and Mat
 
 ### The source code for BiLSTM and LSTM used in this project are collected from [[4]](#4) where the authors made necessary correction for those two models. 
 
+## Annotation Interface
+Two different annotation interfaces used during pilot and main phases are provided in html format under /interface/ directory. 
 
 ## References
 <a id="1">[1]</a> Sweta Agrawal and Amit Awekar. 2018. Deep learning for detecting cyberbullying across
