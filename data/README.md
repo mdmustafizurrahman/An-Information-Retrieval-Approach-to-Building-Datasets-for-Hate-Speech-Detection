@@ -40,11 +40,11 @@ Each row contains 30 colums, where there are 9 columns for each annotators. Thes
 2. hate_auto_label<annotators#id> -- final binary hate label (hate or non-hate) inferred automatically using the annotation provided by the annotator
 3. expliciteHateType<annotators#id> -- if the hate type (incite violence, deragatory langauge or None) is explicit, this column captures that
 4. hatecategory<annotators#id> -- targeted groups for the hate (race, gender, etc) is captured by this column  
-5. highlighted_terms<annotators#id>
-6. highlighted_terms_label<annotators#id>
-7. ImplicithateType<annotators#id>
-8. Implicittaret<annotators#id>
-9. rationale<annotators#id>
+5. highlighted_terms<annotators#id> -- terms highlighted by the annotators related to hate type and hate category 
+6. highlighted_terms_label<annotators#id> -- labels of the terms highlighted by the annotators related to hate type and hate category  
+7. ImplicithateType<annotators#id> -- if the hate type (incite violence, deragatory langauge or None) is implicit, this column captures that
+8. Implicittaret<annotators#id> -- if the targeted group of hate is implicit, this column captures that
+9. rationale<annotators#id> -- any justification provided by the annotators for their decisions 
 
 where <annotators#id> is in the format of 1,2 and 3 for 3 annotators per row.
 
