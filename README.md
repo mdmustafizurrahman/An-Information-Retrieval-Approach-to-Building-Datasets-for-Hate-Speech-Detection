@@ -19,6 +19,11 @@ Md Mustafizur Rahman, Dinesh Balakrishnan, Dhiraj Murthy, Mucahid Kutlu, and Mat
 
 ### The source code for BiLSTM and LSTM used in this project are collected from [[4]](#4) where the authors made necessary correction for those two models. 
 
+## Train and Test sets to Benchmark Models
+
+1. Train.csv --> /data/train_test_sets/
+2. Test.csv --> /data/train_test_sets/
+
 ## Annotation Interface
 Two different annotation interfaces used during pilot and main phases are provided in html format under /interface/ directory. 
 
