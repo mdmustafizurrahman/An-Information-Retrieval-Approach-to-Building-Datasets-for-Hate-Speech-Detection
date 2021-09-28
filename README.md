@@ -25,9 +25,19 @@ Md Mustafizur Rahman, Dinesh Balakrishnan, Dhiraj Murthy, Mucahid Kutlu, and Mat
 2. Test.csv --> /data/train_test_sets/
 
 ## Annotation Interface
+
 Two different annotation interfaces used during pilot and main phases are provided in html format under /interface/ directory. 
 
+## Author Distribution of Tweets
+
+Total Number of Authors: 9534
+1. Total number of Author with exactly 1 contribution: 9430
+2. Total number of Author with exactly 2 contribution: 97
+3. Total number of Author with more than 2 contribution: 7
+
+
 ## References
+
 <a id="1">[1]</a> Sweta Agrawal and Amit Awekar. 2018. Deep learning for detecting cyberbullying across
 multiple social media platforms. In European Conference on Information Retrieval. Springer,
 141–153.
